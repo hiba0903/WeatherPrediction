@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 400px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            text-align: center;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Weather Prediction</h1>
+<form method="POST">
+    <label for="cloud_cover">Cloud Cover:</label>
+    <select name="cloud_cover" id="cloud_cover">
+        <option value="cloudy">Cloudy</option>
+        <option value="partly cloudy">Partly Cloudy</option>
+        <option value="overcast">Overcast</option>
+        <option value="clear">Clear</option>
+    </select>
+
+    <label for="season">Season:</label>
+    <select name="season" id="season">
+        <option value="summer">Summer</option>
+        <option value="winter">Winter</option>
+        <option value="autumn">Autumn</option>
+        <option value="spring">Spring</option>
+    </select>
+
+    <label for="location">Location:</label>
+    <select name="location" id="location">
+        <option value="inland">Inland</option>
+        <option value="mountain">Mountain</option>
+        <option value="coastal">Coastal</option>
+    </select>
+
+    <label for="temperature">Temperature (°C):</label>
+    <input type="number" name="temperature" id="temperature" required step="any">
+
+    <label for="humidity">Humidity (%):</label>
+    <input type="number" name="humidity" id="humidity" required step="any">
+
+    <label for="wind_speed">Wind Speed (km/h):</label>
+    <input type="number" name="wind_speed" id="wind_speed" required step="any">
+
+    <label for="precipitation">Precipitation (%):</label>
+    <input type="number" name="precipitation" id="precipitation" required step="any">
+
+    <label for="atmospheric_pressure">Atmospheric Pressure (hPa):</label>
+    <input type="number" name="atmospheric_pressure" id="atmospheric_pressure" required step="any">
+
+    <label for="uv_index">UV Index:</label>
+    <input type="number" name="uv_index" id="uv_index" required step="any">
+
+    <label for="visibility">Visibility (km):</label>
+    <input type="number" name="visibility" id="visibility" required step="any">
+
+    <button type="submit">Predict</button>
+</form>
+
+{% if prediction is not none %}
+    <div class="result">Prediction: {{ prediction }}</div>
+{% endif %}
+
+</body>
+</html>
